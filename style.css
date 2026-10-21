@@ -230,10 +230,17 @@ header a {
 
 .produtos {
   display: flex;
-  flex-direction: column;
   padding: 10rem 10rem;
   background-color: #fff;
-  gap: 2rem;
+}
+
+.produtos .pt1 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
 }
 
 .produtos h2 {
@@ -248,6 +255,28 @@ header a {
   font-size: 1.6rem;
   width: 50%;
   text-align: justify;
+}
+
+.produtos .pt2 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.produtos .pt2 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.produtos .pt2 li {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
 }
 
 /*========================================================================================================
