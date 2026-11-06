@@ -1,3 +1,44 @@
+/*========================================================================================================
+=================================================VARIÁVEIS================================================
+==========================================================================================================*/
+
+:root {
+  /* Cores */
+  --clara: #f5fbff;
+  --escura: #191e43;
+  --preto: #000;
+  --texto: #444;
+  --header-fundo: rgb(0 0 0 / 0.6);
+
+  /* Fontes */
+  --fonte-texto: "Geist", sans-serif;
+  --fonte-mono: "DM Mono", monospace;
+
+  /* Tamanhos de texto (1rem = 10px) */
+  --fs-sm: 1.4rem;
+  --fs-md: 1.6rem;
+  --fs-lg: 2rem;
+  --fs-hero: 5rem;
+  --fs-titulo: 7rem;
+
+  /* Espaçamentos */
+  --esp-1: 1rem;
+  --esp-2: 2rem;
+  --esp-3: 3rem;
+  --esp-6: 6rem;
+  --esp-10: 3rem 10rem;
+
+  /* Outros */
+  --raio: 0.5rem;
+  --tracking: -2px;
+  --transicao: 0.3s ease;
+  --altura-secao: 100vh;
+}
+
+/*========================================================================================================
+=================================================BASE=====================================================
+==========================================================================================================*/
+
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +53,70 @@ html {
 }
 
 body {
-  font-family: "Geist", sans-serif;
+  font-family: var(--fonte-texto);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+/* Tudo que usa a fonte mono é maiúsculo */
+header h1,
+header ul,
+.faleconosco,
+.hero h2,
+.about h2,
+.about a,
+.produtos h2,
+.produtos .pt2 a,
+.Eco h2,
+footer h2,
+footer h3,
+footer ul,
+footer p {
+  font-family: var(--fonte-mono);
+  text-transform: uppercase;
+}
+
+/* Textos leves em fonte pequena */
+header ul,
+.faleconosco,
+footer h2,
+footer h3,
+footer ul,
+footer p {
+  font-size: var(--fs-sm);
+  font-weight: 300;
+}
+
+/* Títulos de seção */
+.about h2,
+.produtos h2,
+.Eco h2 {
+  font-size: var(--fs-titulo);
+  letter-spacing: var(--tracking);
+  line-height: 1.1;
+}
+
+/* Parágrafos de seção */
+.about p,
+.produtos p,
+.Eco p {
+  font-size: var(--fs-md);
+  color: var(--texto);
+}
+
+/* Botões azuis */
+.about a,
+.faleconosco {
+  background-color: var(--escura);
+  color: var(--clara);
+  border-radius: var(--raio);
 }
 
 /*========================================================================================================
@@ -23,19 +124,19 @@ body {
 ==========================================================================================================*/
 
 header {
-  color: #f5fbff;
+  color: var(--clara);
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5rem 3.5rem;
+  padding: var(--esp-2) var(--esp-3);
   height: 8%;
   width: 45%;
-  top: 3rem;
+  top: var(--esp-3);
   left: 50%;
   transform: translateX(-50%);
-  border: 0.03rem solid #00000098;
-  border-radius: 0.7rem;
+  border: 1px solid var(--header-fundo);
+  border-radius: var(--raio);
   z-index: 1;
   overflow: hidden;
 }
@@ -47,43 +148,30 @@ header::before {
   left: 0;
   width: 110%;
   height: 110%;
-  filter: blur(1.3px);
-  background-color: #00000098;
-  border-radius: 0.7rem;
+  filter: blur(1px);
+  background-color: var(--header-fundo);
+  border-radius: var(--raio);
   z-index: -1;
 }
 
+/*vai mudar*/
 header h1 {
-  font-size: 2.5rem;
-  font-family: "DM Mono", monospace;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: var(--fs-lg);
 }
 
 header ul {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-size: 1.4rem;
-  text-transform: uppercase;
+  gap: var(--esp-3);
 }
 
 header .faleconosco {
   display: flex;
-  gap: 3rem;
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  background-color: #010974;
-  padding: 1rem 1rem;
-  border-radius: 0.4rem;
+  padding: var(--esp-1);
 }
 
 header a {
-  color: #f5fbff;
+  color: var(--clara);
 }
 
 .txt-principal {
@@ -94,12 +182,11 @@ header a {
 .txt-principal::after {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: -0.6rem;
   left: 0;
   width: 0;
-  height: 2px;
-  background-color: #f5fbff;
-
+  height: 0.2rem;
+  background-color: var(--clara);
   animation: surgirLinha 0.8s ease 0.5s forwards;
 }
 
@@ -115,65 +202,57 @@ header a {
 
 .animation-wrapper {
   position: relative;
+  z-index: 1;
 }
+
 .hero,
 .about,
 .produtos {
-  height: 100vh;
-  border: 1px solid #000;
+  height: var(--altura-secao);
 }
 
 .hero {
-  color: #f5fbff;
+  color: var(--clara);
   display: flex;
   position: relative;
   align-items: center;
-  font-size: 5rem;
   justify-content: center;
   overflow: hidden;
 }
 
 .hero h2 {
-  text-transform: uppercase;
-  letter-spacing: -7%;
-  font-weight: 400;
-  font-family: "DM Mono", monospace;
+  font-size: var(--fs-hero);
+  letter-spacing: var(--tracking);
 }
 
-.hero video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  object-position: center;
-  z-index: -1;
-}
-
+.hero video,
 .hero .pelicula {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
-  opacity: 0.4;
   z-index: -1;
+}
+
+.hero video {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero .pelicula {
+  background: var(--preto);
+  opacity: 0.4;
 }
 
 /*========================================================================================================
 =================================================ABOUT====================================================
 ==========================================================================================================*/
+
 .about {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(100vh);
   display: flex;
-  padding: 10rem 10rem;
-  background-color: #f5fbff;
+  padding: var(--esp-10);
+  background-color: var(--clara);
   overflow: hidden;
 }
 
@@ -185,49 +264,32 @@ header a {
   align-items: center;
 }
 
-.pt1 .pt1-box {
+.about .pt1-box {
   display: flex;
-  gap: 2rem;
+  gap: var(--esp-2);
   flex-direction: column;
   width: 60%;
 }
 
-.about h2 {
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  font-weight: 400;
-  font-family: "DM Mono", monospace;
-  font-size: 7rem;
-  line-height: 1.1;
-}
-
-.about p {
-  font-size: 1.6rem;
-  color: #444;
-}
-
 .about a {
-  align-self: self-start;
+  align-self: flex-start;
   display: flex;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: "DM Mono", monospace;
-  color: #f5fbff;
-  font-size: 2rem;
-  background-color: #010974;
-  padding: 1rem 2rem;
-  border-radius: 0.4rem;
   justify-content: center;
   align-items: center;
+  font-size: var(--fs-lg);
+  padding: var(--esp-1) var(--esp-2);
 }
 
-.pt2 {
+.about .pt2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40%;
 }
 
-.pt2 img {
+.about .pt2 img {
   width: 100%;
-  height: 100%;
+  height: 85%;
   object-fit: cover;
   object-position: center;
 }
@@ -239,91 +301,92 @@ header a {
 .produtos {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 10rem;
-  background-color: #f5fbff;
-  gap: 6rem;
+  align-items: center;
+  padding: var(--esp-10);
+  background-color: var(--clara);
+  gap: var(--esp-6);
 }
 
 .produtos .pt1 {
   width: 45%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.produtos h2 {
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  font-weight: 400;
-  font-family: "DM Mono", monospace;
-  font-size: 7rem;
-  line-height: 1.1;
+  gap: var(--esp-2);
 }
 
 .produtos p {
-  font-size: 1.6rem;
-  color: #444;
-  width: 100%;
   text-align: left;
 }
 
 .produtos .pt2 {
   width: 50%;
-  display: flex;
-  flex-direction: column;
 }
 
 .produtos .pt2 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
   counter-reset: item-counter;
 }
 
-/* Cada linha da lista */
 .produtos .pt2 li {
-  counter-increment: item-counter; /* Incrementa +1 a cada item */
-  border-bottom: 1px solid #111;
-}
-
-/* Link interno de cada tópico */
-.produtos .pt2 a {
-  display: flex;
-  align-items: center;
-  padding: 2.2rem 0;
-  color: #000;
-  font-family: "DM Mono", monospace;
-  font-size: 2rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: opacity 2s ease, transform 0.2s ease;
-}
-
-/* Criação automática do número (01, 02, 03...) */
-.produtos .pt2 a::before {
-  content: counter(
-    item-counter,
-    decimal-leading-zero
-  ); /* Exibe com zero à esquerda */
-  font-family: "DM Mono", monospace;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #222;
-  margin-right: 4rem; /* Distância entre o número e o texto */
-  min-width: 2.5rem;
+  counter-increment: item-counter;
+  border-bottom: 1px solid var(--preto);
+  transition: border-color var(--transicao);
 }
 
 .produtos .pt2 li:hover {
-  border-bottom: 1px solid #010974;
+  border-color: var(--escura);
 }
 
-/* Efeito ao passar o mouse */
+.produtos .pt2 a {
+  display: flex;
+  align-items: center;
+  padding: var(--esp-2) 0;
+  color: var(--preto);
+  font-size: var(--fs-lg);
+  transition: transform var(--transicao), color var(--transicao);
+}
+
+.produtos .pt2 a::before {
+  content: counter(item-counter, decimal-leading-zero);
+  font-size: var(--fs-sm);
+  margin-right: var(--esp-3);
+  min-width: var(--esp-3);
+}
+
 .produtos .pt2 a:hover {
-  transform: translateX(15px);
-  color: #010974;
+  transform: translateX(var(--esp-2));
+  color: var(--escura);
+}
+
+/*========================================================================================================
+=================================================ECO======================================================
+==========================================================================================================*/
+
+.Eco {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--clara);
+  overflow: hidden;
+  padding: var(--esp-10);
+  height: 200vh;
+}
+
+.Eco .pt1 {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: var(--esp-2);
+}
+
+.Eco h2 {
+  word-spacing: -25%;
+}
+
+.Eco h3 {
+  font-size: var(--fs-lg);
+  letter-spacing: var(--tracking);
+  line-height: 1.1;
 }
 
 /*========================================================================================================
@@ -331,15 +394,14 @@ header a {
 ==========================================================================================================*/
 
 footer {
-  color: #f5fbff;
+  color: var(--clara);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh;
-  border: 1px solid #000;
   position: relative;
-  background-color: #010974;
+  background-color: var(--escura);
 }
 
 footer .p1 {
@@ -348,34 +410,15 @@ footer .p1 {
   justify-content: center;
   height: 100%;
   width: 100%;
-  gap: 10rem;
-}
-
-footer h2,
-footer h3 {
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-size: 1.4rem;
-  text-transform: uppercase;
+  gap: var(--esp-10);
 }
 
 footer ul {
   display: flex;
   flex-direction: column;
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  gap: 1rem;
+  gap: var(--esp-1);
 }
 
 footer a {
-  color: #f5fbff;
-}
-
-footer p {
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-size: 1rem;
-  text-transform: uppercase;
+  color: var(--clara);
 }
