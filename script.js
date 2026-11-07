@@ -21,6 +21,33 @@ gsap.to(".hero video", {
   },
 });
 
+ScrollTrigger.create({
+  trigger: ".about",
+  start: "top 30%",
+  onEnter: () => {
+    gsap.to("header", {
+      backgroundColor: "#ffffffba",
+      ease: "none",
+      duration: 0.3,
+    });
+  },
+  onEnterBack: () => {
+    gsap.to("header", {
+      backgroundColor: "#ffffffba",
+      ease: "none",
+      duration: 0.3,
+    });
+  },
+
+  onLeaveBack: () => {
+    gsap.to("header", {
+      backgroundColor: "#00000099",
+      ease: "none",
+      duration: 0.3,
+    });
+  },
+});
+
 // Hover dos links
 document.querySelectorAll(".opt").forEach((opt) => {
   opt.addEventListener("mouseenter", () =>

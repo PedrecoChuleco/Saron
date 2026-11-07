@@ -8,7 +8,7 @@
   --escura: #191e43;
   --preto: #000;
   --texto: #444;
-  --header-fundo: rgb(0 0 0 / 0.6);
+  --header-fundo: #00000099;
 
   /* Fontes */
   --fonte-texto: "Geist", sans-serif;
@@ -26,7 +26,7 @@
   --esp-2: 2rem;
   --esp-3: 3rem;
   --esp-6: 6rem;
-  --esp-10: 3rem 10rem;
+  --esp-10: 10rem 10rem;
 
   /* Outros */
   --raio: 0.5rem;
@@ -57,6 +57,11 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.about,
+.produtos {
+  margin-top: -3px;
 }
 
 h1,
@@ -96,7 +101,6 @@ footer p {
 
 /* Títulos de seção */
 .about h2,
-.produtos h2,
 .Eco h2 {
   font-size: var(--fs-titulo);
   letter-spacing: var(--tracking);
@@ -141,20 +145,18 @@ header {
   overflow: hidden;
 }
 
-header::before {
-  content: "";
+.bgcolor {
   position: absolute;
   top: 0;
   left: 0;
-  width: 110%;
-  height: 110%;
-  filter: blur(1px);
-  background-color: var(--header-fundo);
-  border-radius: var(--raio);
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  background-color: #000;
+  opacity: 0.5;
   z-index: -1;
 }
 
-/*vai mudar*/
 header h1 {
   font-size: var(--fs-lg);
 }
@@ -205,9 +207,7 @@ header a {
   z-index: 1;
 }
 
-.hero,
-.about,
-.produtos {
+.hero {
   height: var(--altura-secao);
 }
 
@@ -254,6 +254,7 @@ header a {
   padding: var(--esp-10);
   background-color: var(--clara);
   overflow: hidden;
+  height: auto;
 }
 
 .about .pt1 {
@@ -289,7 +290,7 @@ header a {
 
 .about .pt2 img {
   width: 100%;
-  height: 85%;
+  height: 85vh;
   object-fit: cover;
   object-position: center;
 }
@@ -308,14 +309,22 @@ header a {
 }
 
 .produtos .pt1 {
-  width: 45%;
   display: flex;
+  width: 45%;
   flex-direction: column;
+  justify-content: center;
   gap: var(--esp-2);
+  height: 50vh;
+}
+
+.produtos h2 {
+  font-size: var(--fs-titulo);
+  letter-spacing: var(--tracking);
+  line-height: 1.1;
 }
 
 .produtos p {
-  text-align: left;
+  width: 85%;
 }
 
 .produtos .pt2 {
@@ -324,6 +333,7 @@ header a {
 
 .produtos .pt2 ul {
   counter-reset: item-counter;
+  height: auto;
 }
 
 .produtos .pt2 li {
